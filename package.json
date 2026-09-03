@@ -1,0 +1,25 @@
+{
+  "name": "devlink-social-network",
+  "version": "2.4.0",
+  "description": "DevLink - Next-Gen Developer Social Network & Code Collaboration Platform (Universal Cross-Device)",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "server": "node server/server.js",
+    "postinstall": "npm --prefix server install"
+  },
+  "keywords": [
+    "social-network",
+    "developers",
+    "code-sharing",
+    "cross-platform",
+    "mobile-friendly"
+  ],
+  "author": "DevLink Community",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

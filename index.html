@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevLink - Developer Social Network & Code Collaboration Platform">
+    <title>DevLink — Developer Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <script src="database.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #07090e;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .ambient-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.25) 0%, transparent 70%);
+            filter: blur(90px);
+            pointer-events: none;
+        }
+        .splash-card {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+            animation: fadeIn 0.4s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .logo-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1.5px solid rgba(0, 242, 254, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #00f2fe;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+            animation: pulseGlow 2s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.2); }
+            100% { box-shadow: 0 0 35px rgba(0, 242, 254, 0.5); }
+        }
+        .brand-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+        }
+        .brand-name span {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .status-text {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .loader-bar {
+            width: 180px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .loader-fill {
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, #00f2fe, #7f00ff);
+            border-radius: 9999px;
+            position: absolute;
+            animation: slideLoader 1.2s infinite ease-in-out;
+        }
+        @keyframes slideLoader {
+            0% { left: -40%; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="splash-card">
+        <div class="brand-logo">
+            <div class="logo-icon">&lt;/&gt;</div>
+            <div class="brand-name">dev<span>link</span></div>
+        </div>
+        <p class="status-text">Connecting developer databases & session...</p>
+        <div class="loader-bar">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+
+    <script>
+        // Check session and route
+        setTimeout(() => {
+            window.location.href = "homepage/index.html";
+        }, 400);
+    </script>
+</body>
+</html>

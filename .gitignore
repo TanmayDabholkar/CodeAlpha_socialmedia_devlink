@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+server/node_modules/
+package-lock.json
+server/package-lock.json
+
+# Operating System files
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary database files if desired
+# server/data/*.json
