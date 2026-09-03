@@ -1,16 +1,8 @@
-/**
- * DevLink Homepage & Developer Feed Engine
- * Fully integrated with DevLinkDB (UserDB, PostDB, MessageDB, NotificationDB)
- * Handles: Full Post CRUD, Likes, Threaded Comments, Bookmarks, Real-time Search,
- * Profile View & Editor, Direct Messages, Notifications Center, Settings & Themes.
- */
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  // =========================================================================
   // 1. Current Active User from UserDB
-  // =========================================================================
   let currentUser = window.DevLinkDB
     ? window.DevLinkDB.UserDB.getCurrentUser()
     : {
@@ -76,9 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   syncUserProfileUI();
 
-  // =========================================================================
   // 2. Toast Notification Utility
-  // =========================================================================
   const toastContainer = document.getElementById('toast-container');
 
   function showToast({ title, message, type = 'info', duration = 3500 }) {
@@ -123,9 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, duration);
   }
 
-  // =========================================================================
   // 3. Post Rendering & Dynamic Stream
-  // =========================================================================
   const postsStream = document.getElementById('posts-stream');
 
   function renderPostCard(post) {
@@ -298,9 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderAllPosts();
 
-  // =========================================================================
   // 4. Saved Posts Badges & Counters
-  // =========================================================================
   function updateSavedCounters() {
     let count = 0;
     if (window.DevLinkDB) {
@@ -314,9 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedPill) savedPill.textContent = count;
   }
 
-  // =========================================================================
   // 5. Global Search & Real-Time Filtering
-  // =========================================================================
   const searchInput = document.getElementById('global-search-input');
   const btnClearSearch = document.getElementById('btn-clear-search');
   const searchBanner = document.getElementById('search-status-banner');
@@ -398,9 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // =========================================================================
   // 6. Interactive Post Actions (Like, Comment, Save, Share, Copy Code, Delete)
-  // =========================================================================
   if (postsStream) {
     postsStream.addEventListener('click', (e) => {
       // --- LIKE BUTTON ACTION ---
@@ -589,9 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // =========================================================================
   // 7. Post Composer & Publish Flow
-  // =========================================================================
   const postComposerInput = document.getElementById('post-composer-input');
   const btnToggleCodeTool = document.getElementById('btn-toggle-code-tool');
   const composerCodeBox = document.getElementById('composer-code-box');
@@ -683,9 +663,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // =========================================================================
   // 8. Navigation Filters & Sidebar Links
-  // =========================================================================
   const feedTabs = document.querySelectorAll('.feed-tab');
   const sidebarNavLinks = document.querySelectorAll('.sidebar-nav .nav-link, .mobile-bottom-nav .mob-nav-btn');
 
@@ -739,9 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // =========================================================================
   // 9. Profile Dropdown Controls
-  // =========================================================================
   const btnProfileDropdown = document.getElementById('btn-profile-dropdown');
   const profileDropdown = document.getElementById('profile-dropdown');
 
@@ -766,9 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // =========================================================================
   // 10. Modals Hub Handlers
-  // =========================================================================
 
   function openModal(modalEl) {
     if (!modalEl) return;
@@ -1186,9 +1160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // =========================================================================
   // 11. Follow / Following Actions
-  // =========================================================================
   document.querySelectorAll('.btn-follow').forEach((btn) => {
     const handle = btn.getAttribute('data-handle');
     if (window.DevLinkDB && handle) {
@@ -1222,9 +1194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // =========================================================================
   // 12. Switch Account / Log Out
-  // =========================================================================
   const menuLogout = document.getElementById('menu-logout');
   menuLogout?.addEventListener('click', (e) => {
     e.preventDefault();
@@ -1242,9 +1212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 600);
   });
 
-  // =========================================================================
   // Helper: HTML escaping to prevent XSS
-  // =========================================================================
   function escapeHtml(str) {
     if (!str) return '';
     return String(str)
