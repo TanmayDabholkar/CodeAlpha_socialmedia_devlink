@@ -1,0 +1,13 @@
+{
+  "name": "devlink-backend",
+  "version": "2.4.0",
+  "description": "DevLink dual-database backend server (users.db & posts.db)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}
